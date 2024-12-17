@@ -1,18 +1,17 @@
-// using Domain.Models;
-
 using Domain.Models;
 using Infrastructure.DataContext;
 using Infrastructure.Services;
 using Infrastructure.Interfaces;
+using WebApp.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<IContext,DapperContext>();
-builder.Services.AddScoped<IApplicationService<Application>, ApplicationService>();
-builder.Services.AddScoped<IJobService<Job>, JobService>();
-builder.Services.AddScoped<IUserService<User>, UserService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IJobService, JobService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
